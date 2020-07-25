@@ -1,5 +1,5 @@
 # CCapture.js - A library to capture canvas-based animations
-CCapture.js is a library to help capturing animations created with HTML5 `canvas` at a fixed framerate. 
+CCapture.js is a library to help capturing animations created with HTML5 `canvas` at a fixed framerate.
 
 - [What is CCapture.js and why would I need it?](#what-is-ccapturejs-and-why-would-i-need-it)
 - [Using the code](#using-the-code)
@@ -32,20 +32,20 @@ Methods supported so far:
 - `performance.now`
 - `HTMLVideoElement.prototype.currentTime`, `HTMLAudioElement.prototype.currentTime`
 
-CCapture.js is more or less [ryg's kkapture](http://www.farb-rausch.de/~fg/kkapture/) but for JavaScript and `canvas`. 
+CCapture.js is more or less [ryg's kkapture](http://www.farb-rausch.de/~fg/kkapture/) but for JavaScript and `canvas`.
 
 The library supports multiple export formats using modular encoders (`CCFrameEncoder):
 
 - `CCWebMEncoder` uses [WebM Writer for JavaScript](https://github.com/thenickdude/webm-writer-js/) to create a WebM movie
 - `CCPNGEncoder` and `CCJPEGEncoder` export PNG and JPEG files in a TAR file, respectively
 - `CCGIFEncoder` uses [gifjs](http://jnordberg.github.io/gif.js/) to create animated GIFs
-- `CCFFMpegServerEncoder` uses [ffmpegserver.js](https://github.com/greggman/ffmpegserver.js) to generate video on the server 
+- `CCFFMpegServerEncoder` uses [ffmpegserver.js](https://github.com/greggman/ffmpegserver.js) to generate video on the server
 
 Forks, pull requests and code critiques are welcome!
 
 #### Using the code ####
 
-Include CCapture[.min].js and [WebM Writer](https://github.com/thenickdude/webm-writer-js) or [gifjs](http://jnordberg.github.io/gif.js/). 
+Include CCapture[.min].js and [WebM Writer](https://github.com/thenickdude/webm-writer-js) or [gifjs](http://jnordberg.github.io/gif.js/).
 
 ```html
 <script src="CCapture.min.js"></script>
@@ -62,13 +62,9 @@ Or include the whole pack
 ```html
 <script src="CCapture.all.min.js"></script>
 ```
-Or use npm or bower to install the [package](https://www.npmjs.com/package/ccapture.js):
+Or use npm to install the [package](https://www.npmjs.com/package/ccapture.js):
 ```bash
 npm install ccapture.js
-```
-Or use bower to install the [package](https://www.npmjs.com/package/ccapture.js):
-```bash
-bower install ccapture.js
 ```
 
 To create a CCapture object, write:
@@ -78,7 +74,7 @@ To create a CCapture object, write:
 var capturer = new CCapture( { format: 'webm' } );
 
 // Create a capturer that exports an animated GIF
-// Notices you have to specify the path to the gif.worker.js 
+// Notices you have to specify the path to the gif.worker.js
 var capturer = new CCapture( { format: 'gif', workersPath: 'js/' } );
 
 // Create a capturer that exports PNG images in a TAR file
@@ -171,7 +167,7 @@ There's some issues in which memory -mostly from accumulated frames- will not be
 
 #### Credits ####
 
-- [WebM Writer](https://github.com/thenickdude/webm-writer-js) 
+- [WebM Writer](https://github.com/thenickdude/webm-writer-js)
 - Pre 1.0.9: Slightly modified version of [Whammy.js](https://github.com/antimatter15/whammy) (fixed variable size
    integer calculations)
 - Slightly modified version of [tar.js](https://github.com/beatgammit/tar-js) (fixed memory allocations for many files)
