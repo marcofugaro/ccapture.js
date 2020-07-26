@@ -1,8 +1,12 @@
-# CCapture.js - A library to capture canvas-based animations
+# CCapture.js
+
+> A library to capture canvas-based animations
+
 CCapture.js is a library to help capturing animations created with HTML5 `canvas` at a fixed framerate.
 
 - [What is CCapture.js and why would I need it?](#what-is-ccapturejs-and-why-would-i-need-it)
-- [Using the code](#using-the-code)
+- [Installation](#installation)
+- [Usage](#usage)
 - [Limitations](#limitations)
 - [Gallery](#gallery)
 - [Credits](#credits)
@@ -34,7 +38,7 @@ Methods supported so far:
 
 CCapture.js is more or less [ryg's kkapture](http://www.farb-rausch.de/~fg/kkapture/) but for JavaScript and `canvas`.
 
-The library supports multiple export formats using modular encoders (`CCFrameEncoder):
+The library supports multiple export formats using modular encoders (`CCFrameEncoder`):
 
 - `CCWebMEncoder` uses [WebM Writer for JavaScript](https://github.com/thenickdude/webm-writer-js/) to create a WebM movie
 - `CCPNGEncoder` and `CCJPEGEncoder` export PNG and JPEG files in a TAR file, respectively
@@ -43,29 +47,45 @@ The library supports multiple export formats using modular encoders (`CCFrameEnc
 
 Forks, pull requests and code critiques are welcome!
 
-#### Using the code ####
-
 Include CCapture[.min].js and [WebM Writer](https://github.com/thenickdude/webm-writer-js) or [gifjs](http://jnordberg.github.io/gif.js/).
 
+### Installation
+
+You can use the CCapture bundle like this in your html
 ```html
-<script src="CCapture.min.js"></script>
-<!-- Include WebM Writer if you want to export WebM -->
-<script src="webm-writer-0.2.0.js"></script>
-<!-- Include gifjs if you want to export GIF -->
-<script src="gif.js"></script>
-<!-- Include tar.js if you want to export PNG or JPEG -->
-<script src="tar.js"></script>
-<!-- Include download.js for easier file download -->
-<script src="download.js"></script>
+<script src="CCapture.js"></script>
 ```
-Or include the whole pack
-```html
-<script src="CCapture.all.min.js"></script>
-```
-Or use npm to install the [package](https://www.npmjs.com/package/ccapture.js):
+
+Or you can install the npm package
 ```bash
 npm install ccapture.js
 ```
+
+and import it like this
+
+```js
+import CCapture from 'ccapture.js'
+```
+
+Otherwise, if you're shipping CCapture to production and want to include only encoders of the formats you need, you can import the lite version and the encoder like this
+
+```html
+<script src="CCapture.lite.js"></script>
+<!-- Include WebM Writer if you want to export WebM -->
+<!-- https://github.com/thenickdude/webm-writer-js -->
+<script src="webm-writer-0.2.0.js"></script>
+<!-- Include gif.js if you want to export GIF -->
+<!-- https://github.com/jnordberg/gif.js/blob/master/dist/gif.js -->
+<script src="gif.js"></script>
+<!-- Include tar.js if you want to export PNG or JPEG -->
+<!-- https://github.com/spite/ccapture.js/blob/master/src/tar.js -->
+<script src="tar.js"></script>
+<!-- Include download.js for easier file download -->
+<!-- https://github.com/rndme/download/blob/master/download.js -->
+<script src="download.js"></script>
+```
+
+### Usage
 
 To create a CCapture object, write:
 
@@ -141,11 +161,11 @@ capturer.save( function( blob ) { /* ... */ } );
 
 **Note**: you don't need to `.stop()` in order to `.save()`. Call `capturer.save()` anytime you want to get a download up to that moment.
 
-#### Limitations ####
+### Limitations
 
 CCapture.js only works on browsers that have a `canvas implementation.
 
-**WebM Writer** current version only works on a browser that supports the image/webp format. Exporting video is basically Chrome-only for now :( If you want to help to make it Firefox, Opera or even Internet Explorer compatible, please do!
+**WebM Writer** current version only works on a browser that supports the image/webp format. So it doesn't work in Safari or Internet Explorer.
 
 **gif.js** has some performance limitations, be careful if capturing a lot of frames.
 
@@ -159,13 +179,13 @@ Use an `autoSaveTime` value that give you a file that is small enough to not tri
 
 There's some issues in which memory -mostly from accumulated frames- will not be freed, depending on the platform and the mood of the browser. If you run into non-sawtooth like memory profiles, and are running chrome, try running it with ```--js-flags="--expose-gc"```. This way CCapture will run ```gc()``` every frame and memory consumption should stay stable.
 
-#### Gallery ####
+### Gallery
 
 [![cru·ci·form 4K CCapture](http://img.youtube.com/vi/rly322ijJWA/0.jpg)](https://www.youtube.com/watch?v=rly322ijJWAY "cru·ci·form 4K CCapture")
 [![obsidian by xplsv 4K CCapture](http://img.youtube.com/vi/D0qUgb6AGX8/0.jpg)](https://www.youtube.com/watch?v=D0qUgb6AGX8 "obsidian by xplsv 4K CCapture")
 [![dataworld by xplsv 4K CCapture](http://img.youtube.com/vi/3HQBmurQps8/0.jpg)](https://www.youtube.com/watch?v=3HQBmurQps8 "dataworld by xplsv 4K CCapture")
 
-#### Credits ####
+### Credits
 
 - [WebM Writer](https://github.com/thenickdude/webm-writer-js)
 - Pre 1.0.9: Slightly modified version of [Whammy.js](https://github.com/antimatter15/whammy) (fixed variable size
@@ -174,11 +194,11 @@ There's some issues in which memory -mostly from accumulated frames- will not be
 - [download.js](http://danml.com/download.html)
 - [Gif.js](https://github.com/jnordberg/gif.js)
 
-#### Contributors ####
+### Contributors
 
 Big thanks to [hugohil](https://github.com/hugohil) and [Greggman](https://github.com/greggman)!
 
-#### License ####
+### License
 
 MIT licensed
 

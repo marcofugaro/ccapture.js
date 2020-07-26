@@ -1,5 +1,5 @@
 import { CCFrameEncoder } from './CCFrameEncoder';
-import GIF from 'gif.js/dist/gif';
+import GIF from 'gif.js/dist/gif.js';
 
 /*function CCGIFEncoder( settings ) {
 
