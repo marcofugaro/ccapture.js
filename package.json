@@ -2,14 +2,19 @@
   "name": "ccapture.js",
   "version": "1.0.9",
   "description": "A library to capture canvas-based animations at a fixed framerate",
-  "main": "build/CCapture.all.min.js",
+  "main": "build/CCapture.js",
+  "module": "build/CCapture.module.js",
   "scripts": {
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spite/ccapture.js.git"
   },
+  "files": [
+    "build"
+  ],
   "keywords": [
     "capture",
     "canvas",
@@ -21,5 +26,16 @@
   "bugs": {
     "url": "https://github.com/spite/ccapture.js/issues"
   },
-  "homepage": "https://github.com/spite/ccapture.js#readme"
+  "homepage": "https://github.com/spite/ccapture.js#readme",
+  "dependencies": {
+    "downloadjs": "^1.4.7",
+    "ffmpegserver.js": "github:greggman/ffmpegserver.js",
+    "gif.js": "^0.2.0",
+    "webm-writer": "^0.3.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "rollup": "^2.23.0"
+  }
 }
